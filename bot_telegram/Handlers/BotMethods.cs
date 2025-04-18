@@ -29,8 +29,12 @@ namespace Handlers {
                 else if (inputText.StartsWith("/autore")) {
                     var reply = """
                                 Автор - Маркова Анастасия
+                                --- --- --- --- --- ---
+                                Почта - avmarkova2000@gmail.com
                                 VK - https://vk.com/id592571495
-                                tg - @Vie_Mark
+                                Tg - @Vie_Mark
+                                Git - https://github.com/Vie_Mark
+                                --- --- --- --- --- ---
                                 """;
                     await bot.SendTextMessageAsync(chatId, reply, cancellationToken: cancellationToken);
                 }
@@ -38,7 +42,7 @@ namespace Handlers {
                     var reply = """
                                 /help or /menu - список команд;
                                 /start - начальное приветствие;
-                                /autore - информация про автора бота;
+                                /autore - информация про автора;
                                 """;
                     await bot.SendTextMessageAsync(chatId, reply, cancellationToken: cancellationToken);
                 }
