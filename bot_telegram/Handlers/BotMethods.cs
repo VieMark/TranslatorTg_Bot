@@ -10,9 +10,14 @@ namespace Handlers {
             // проверяем пришло ли нам какое-то сообщение
             if (update.Type != UpdateType.Message || update.Message is null)
                 return;
-
             var chatId = update.Message.Chat.Id;
             
+            // если стикер , то присылаем его же пользователю 
+            if (update.Message.Type == MessageType.Sticker && update.Message.Sticker != null) {
+                await bot.SendStickerAsync(chatId, InputFile.FromFileId(update.Message.Sticker.FileId), cancellationToken: cancellationToken);
+                return;
+            }
+
             if (update.Message.Type == MessageType.Text && update.Message.Text != null) {
                 var inputText = update.Message.Text;
                 
