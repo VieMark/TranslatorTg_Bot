@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "oHqQKDlhMVw=",
+  "success": true,
+  "projectFilePath": "/Users/markova_a/RiderProjects/bot_telegram/bot_telegram/bot_telegram.csproj",
+  "expectedPackageFiles": [
+    "/Users/markova_a/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
+    "/Users/markova_a/.nuget/packages/telegram.bot/19.0.0/telegram.bot.19.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
