@@ -17,7 +17,7 @@ namespace Handlers {
                 await bot.SendStickerAsync(chatId, InputFile.FromFileId(update.Message.Sticker.FileId), cancellationToken: cancellationToken);
                 return;
             }
-
+            // Если пришёл текст и это что-то из команд /start, /autore и /help
             if (update.Message.Type == MessageType.Text && update.Message.Text != null) {
                 var inputText = update.Message.Text;
                 
@@ -26,7 +26,22 @@ namespace Handlers {
                     var reply = $"Привет, {username}! Этот бот позволяет переводить сообщения на английский и корейский языки.";
                     await bot.SendTextMessageAsync(chatId, reply, cancellationToken: cancellationToken);
                 }
-                
+                else if (inputText.StartsWith("/autore")) {
+                    var reply = """
+                                Автор - Маркова Анастасия
+                                VK - https://vk.com/id592571495
+                                tg - @Vie_Mark
+                                """;
+                    await bot.SendTextMessageAsync(chatId, reply, cancellationToken: cancellationToken);
+                }
+                else if (inputText.StartsWith("/help") || inputText.StartsWith("/menu")) {
+                    var reply = """
+                                /help or /menu - список команд;
+                                /start - начальное приветствие;
+                                /autore - информация про автора бота;
+                                """;
+                    await bot.SendTextMessageAsync(chatId, reply, cancellationToken: cancellationToken);
+                }
                 // переводим сообщение на корейский и английский языки \(о-о)/
                 else {
                     var translatedEn = await TranslateAsync(inputText, "en");
